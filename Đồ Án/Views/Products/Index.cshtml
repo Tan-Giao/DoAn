@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Assignment.Data.Entities.Product>
+
+@{
+    ViewData["Title"] = "Index";
+    int currentTab = Convert.ToInt16(ViewData["tab"]);
+    int total = Convert.ToInt16(ViewData["total"]);
+    int totalTab = (int)Math.Ceiling((double)total / 10);
+    int i = Convert.ToInt16(ViewData["tab"]) * 10 - 10;
+}
+
+<p>
+    <a asp-action="Create" class="text-decoration-none fw-bold text-success">Create New Product</a>
+</p>
+<table class="table table-responsive table-responsive-sm table-striped table-hover" style="vertical-align:middle" id="tbl">
+    <thead class="text-center">
+        <tr>
+            <th>No.</th>
+            <th width="175px">
+                Image
+            </th>
+            <th>
+
+                Id
+            </th>
+            <th>
+
+                Name
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+
+                Price
+            </th>
+            <th>
+
+                Brand
+            </th>
+            <th>
+
+                Screen
+            </th>
+            <th>
+
+                Platform
+            </th>
+            <th>
+
+                Chip
+            </th>
+            <th>
+
+                Ram
+            </th>
+            <th>
+
+                Storage
+            </th>
+            <th>
+
+                Battery
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @{
+                        i++;
+                    }
+                    @i
+                </td>
+                <td>
+                    <img src="~/images/@item.ProductImage" class="img-thumbnail">
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td class="text-center">
+                    @Html.DisplayFor(modelItem => item.ProductQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand.BrandName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductScreen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductPlatform)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductChip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductRam)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductStorage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductBattery)
+                </td>
+                <td>
+                    <div class="dropdown open">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            &#8226;&#8226;&#8226;
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="triggerId">
+                            <a asp-action="Edit" asp-route-id="@item.ProductId" class="dropdown-item"><img src="~/images/icon/tools.svg" style="width:25px;"> Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.ProductId" class="dropdown-item"><img src="~/images/icon/list-check.svg" style="width:25px;"> Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.ProductId" class="dropdown-item"><img src="~/images/icon/x-lg.svg" style="width:25px;"> Delete</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<nav aria-label="Page navigation example">
+    <ul class="pagination pagination-lg justify-content-center">
+        <li class="page-item" id="tabPreLi">
+            <a class="page-link" asp-action="Index" id="tabPre" asp-route-tab="@(currentTab-1==0?1:currentTab-1)" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        @for (int j = 1; j <= totalTab; j++)
+        {
+            <li class="page-item">
+                <a asp-action="Index" asp-route-tab="@j" class="page-link">
+                    @j
+                </a>
+            </li>
+        }
+        <li class="page-item" id="tabNextLi">
+            <a class="page-link" asp-action="Index" id="tabNext" asp-route-tab="@(currentTab+1>totalTab?totalTab:currentTab+1)" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

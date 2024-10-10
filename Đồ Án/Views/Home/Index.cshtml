@@ -1,0 +1,335 @@
+﻿@model IEnumerable<Assignment.Data.Entities.Product>
+
+@{
+    int count = 0;
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!-- Modal Search Start -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content rounded-0">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex align-items-center">
+                <div class="input-group w-75 mx-auto d-flex">
+                    <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                    <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Search End -->
+<!-- Hero Start -->
+<div class="container-fluid py-5 mb-5 hero-header">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-md-12 col-lg-7">
+                <h4 class="mb-3 text-secondary">Khuyến mãi cực sốc</h4>
+                <h1 class="mb-5 display-3 text-primary">Giảm giá đến <spna class="badge bg-danger fw-bold fs-1">50%</spna> </h1>
+                <div class="position-relative mx-auto">
+                    <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="number" placeholder="Bạn tìm gì...">
+                    <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 25%;">Tìm ngay</button>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="col-md-12 col-lg-5">
+                <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+
+                        @foreach (var item in ViewBag.Get4Products)
+                        {
+                            <div class="carousel-item rounded" id="Product @item.ProductId">
+                                <a asp-action="ProductDetail" asp-route-id="@item.ProductId" title="@item.ProductName" class="btn px-4 py-2 text-dark rounded">
+                                    <img src="~/images/@item.ProductImage" class="img-fluid w-100 h-100 rounded" alt="@item.ProductName slide">
+                                    <span class="fw-bold">@item.ProductName</span>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                    <button class="carousel-control-prev m-auto btn btn-secondary opacity-75 bg-secondary" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next m-auto btn btn-secondary opacity-75 bg-secondary" type="button" data-bs-target="#carouselId" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+<!-- Featurs Section Start --><div class="container-fluid featurs py-5">
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-primary mb-5 mx-auto">
+                        <i class="fas fa-car-side fa-3x text-white "></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>Miễn Ship</h5>
+                        <p class="mb-0">Cho đơn trên $500</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-primary mb-5 mx-auto">
+                        <i class="fas fa-user-shield fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>Thanh Toán</h5>
+                        <p class="mb-0">Chỉ trong 2s</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-primary mb-5 mx-auto">
+                        <i class="fas fa-exchange-alt fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>Chính Hãng</h5>
+                        <p class="mb-0">Bảo hành lên đến 1 năm</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-primary mb-5 mx-auto">
+                        <i class="fa fa-phone-alt fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>Hỗ Trợ 24/7</h5>
+                        <p class="mb-0">Tận tâm và nhiệt tình</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featurs Section End -->
+<!-- Fruits Shop Start-->
+<div class="container-fluid fruite py-5">
+    <div class="container py-5">
+        <div class="tab-class text-center">
+            <div class="row g-4">
+                <div class="col-lg-4 text-start">
+                    <h1>Các Sản Phẩm</h1>
+                </div>
+                <div class="col-lg-8 text-end">
+                    <ul class="nav nav-pills d-inline-flex text-center mb-5">
+                        <li class="nav-item">
+                            <a class="d-flex m-2 py-2 bg-light rounded-pill active text-decoration-none" data-bs-toggle="pill" href="#tab-1">
+                                <span class="text-dark text-nowarp px-2">Sản phẩm bán chạy</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex py-2 m-2 bg-light rounded-pill text-decoration-none" data-bs-toggle="pill" href="#tab-2">
+                                <span class="text-dark text-nowarp px-2">Laptop</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex m-2 py-2 bg-light rounded-pill text-decoration-none" data-bs-toggle="pill" href="#tab-3">
+                                <span class="text-dark text-nowarp px-2">Điện thoại</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex m-2 py-2 bg-light rounded-pill text-decoration-none" asp-action="AllProduct">
+                                <span class="text-dark text-nowarp px-2">Tất Cả Sản Phẩm <i class="text-primary fa fa-arrow-right"></i></span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                @foreach (var item in ViewBag.GetBestSeller)
+                                {
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="~/images/@item.ProductImage" class="img-fluid w-100 rounded-top" alt="@item.ProductName">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">@item.Category.CategoryName</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4>@item.ProductName</h4>
+                                                <p class="text-truncate" style="max-width: 300px;" title="@item.ProductDescription">@item.ProductDescription</p>
+                                                <div class="d-flex justify-content-between flex-lg-wrap">
+                                                    <p class="text-dark fs-5 fw-bold mb-0">@item.ProductPrice $</p>
+                                                    <a asp-action="ProductDetail" asp-route-id="@item.ProductId" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-expand me-2 text-primary"></i>Xem chi tiết</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Start category Laptop -->
+
+                <div id="tab-2" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+
+                                <!-- Start Product Laptop -->
+                                @foreach (var item in ViewBag.GetLaptop)
+                                {
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <img src="~/images/@item.ProductImage" class="img-fluid w-100 rounded-top" alt="@item.ProductName">
+                                            </div>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">@item.Category.CategoryName</div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <h4>@item.ProductName</h4>
+                                                <p>@item.ProductDescription</p>
+                                                <div class="d-flex justify-content-between flex-lg-wrap">
+                                                    <p class="text-dark fs-5 fw-bold mb-0">@item.ProductPrice $</p>
+                                                    <a asp-action="ProductDetail" asp-route-id="@item.ProductId" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Xem chi tiết</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                              
+                                <!-- End Product Laptop -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End category Laptop -->
+                <!-- Start category Điện thoại -->
+
+                <div id="tab-3" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                @foreach(var item in ViewBag.GetMobile){
+                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                    <div class="rounded position-relative fruite-item">
+                                        <div class="fruite-img">
+                                            <img src="~/images/@item.ProductImage" class="img-fluid w-100 rounded-top" alt="@item.ProductName">
+                                        </div>
+                                        <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">@item.Category.CategoryName</div>
+                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                            <h4>@item.ProductName</h4>
+                                            <p>@item.ProductDescription</p>
+                                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                                <p class="text-dark fs-5 fw-bold mb-0">@item.ProductPrice $</p>
+                                                <a asp-action="ProductDetail" asp-route-id="@item.ProductId" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Xem chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End category Điện thoại -->
+                <a class="text-centerborder-secondary rounded rounded-pill mt-5 px-4 py-3 text-primary text-uppercase mb-4 ms-4 btn " asp-action="AllProduct">Xem tất cả sản phẩm</a>
+                <!-- Fruits Shop End-->
+                <!-- Banner Section Start-->
+
+                <div class="container-fluid banner bg-primary my-5">
+                    <div class="container py-5">
+                        <div class="row g-4 align-items-center">
+                            <div class="col-lg-6">
+                                <div class="py-4">
+                                    <h1 class="display-3 text-white">@ViewBag.BestProduct.ProductName</h1>
+                                    <p class="fw-normal display-3 text-dark mb-4 text-white">@ViewBag.BestProduct.ProductStorage</p>
+                                    <p class="mb-4 text-white">@ViewBag.BestProduct.ProductDescription</p>
+                                    <a asp-action="ProductDetail" asp-route-id="@ViewBag.BestProduct.ProductId" class="banner-btn btn border-2 border-white rounded-pill text-white py-3 px-5 bg-success">BUY</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="position-relative">
+                                    <img src="~/images/@ViewBag.BestProduct.ProductImage" class="img-fluid w-100 rounded" alt="">
+                                    <div class="d-flex align-items-center justify-content-center bg-danger rounded-circle position-absolute" style="width: 140px; height: 140px; top: 0; left: 0;">
+                                        <h1 style="font-size: 100px;" class="text-white ">$</h1>
+                                        <div class="d-flex flex-column">
+                                            <span class="h2 text-white mb-0">@ViewBag.BestProduct.ProductPrice</span>
+                                          @*   <span class="h4 text-muted mb-0">$</span> *@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Banner Section End-->
+
+
+
+                <div class="container-fluid py-5">
+                    <div class="container">
+                        <div class="bg-light p-5 rounded">
+                            <div class="row g-4 justify-content-center">
+                                <div class="col-md-6 col-lg-6 col-xl-3">
+                                    <div class="counter bg-white rounded p-5">
+                                        <i class="fa fa-users text-secondary" aria-hidden="true"></i>
+                                        <h4>Số lượng khách hàng</h4>
+                                        <h1>1963</h1>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-3">
+                                    <div class="counter bg-white rounded p-5">
+                                        <i class="fa fa-bell text-warning" aria-hidden="true"></i>
+                                        <h4>Chất lượng phục vụ</h4>
+                                        <h1>99%</h1>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-3">
+                                    <div class="counter bg-white rounded p-5">
+                                        <i class="fa fa-child text-info" aria-hidden="true"></i>
+                                        <h4>Số lượng nhân viên</h4>
+                                        <h1>334</h1>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-6 col-xl-3">
+                                    <div class="counter bg-white rounded p-5">
+                                        <i class="fa fa-mobile text-success" aria-hidden="true"></i>
+                                        <h4>Sản phẩm có sẵn</h4>
+                                        <h1>1200</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var getFirstSlide = document.getElementById("Product 19");
+    getFirstSlide.classList.add("active");
+</script>

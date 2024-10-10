@@ -1,0 +1,295 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Assignment.Data.Entities.Product
+@{
+}
+<!-- Single Product Start -->
+<div class="container-fluid py-5 mt-5">
+    <div class="container py-5">
+        <div class="row g-4 mb-5">
+            <div class="col-lg-8 col-xl-9">
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="border rounded">
+                            <img src="~/images/@Model.ProductImage" class="img-fluid rounded" alt="Image">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <h4 class="fw-bold mb-3">@Model.ProductName</h4>
+                        <p class="mb-3">Loại: @Model.Category.CategoryName</p>
+                        <h5 class="fw-bold mb-3">@Model.ProductPrice $</h5>
+                        <div class="d-flex mb-4">
+                            <i class="fa fa-star text-warning"></i>
+                            <i class="fa fa-star  text-warning"></i>
+                            <i class="fa fa-star  text-warning"></i>
+                            <i class="fa fa-star  text-warning"></i>
+                            <i class="fa fa-star text-secondary"></i>
+                        </div>
+                        <p class="mb-4">
+                            @Model.ProductDescription
+                        </p>
+                        <div class="input-group quantity mb-5" style="width: 100px;">
+                            <div class="input-group-btn">
+                                <button class="btn btn-sm btn-minus rounded-circle bg-light border">
+                                    <i class="fa fa-minus"></i>
+                                </button>
+                            </div>
+                            @* Amount Item cart *@
+                            <input type="number" class="form-control form-control-sm text-center border-0" min="1"
+                                   value="1">
+
+                            <div class="input-group-btn">
+                                <button class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <a asp-action="Buy" asp-route-id="@Model.ProductId" class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary">
+                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Thêm vào giỏ hàng
+                        </a>
+                    </div>
+                    <div class="col-lg-12">
+                        <nav>
+                            <div class="nav nav-tabs mb-3">
+                                <button class="nav-link active border-white border-bottom-0" type="button"
+                                        role="tab" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about"
+                                        aria-controls="nav-about" aria-selected="true">
+                                    Mô tả chung
+                                </button>
+                                <button class="nav-link border-white border-bottom-0" type="button" role="tab"
+                                        id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission"
+                                        aria-controls="nav-mission" aria-selected="false">
+                                    Tất cả thông số
+                                </button>
+                            </div>
+                        </nav>
+                        <div class="tab-content mb-5">
+                            <div class="tab-pane active" id="nav-about" role="tabpanel"
+                                 aria-labelledby="nav-about-tab">
+                                <p>
+                                    @Model.ProductDescription
+                                </p>
+                                <div class="px-2">
+                                    <div class="row g-4">
+                                        <div class="col-6">
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Tên</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductName</p>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center align-items-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Hãng</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.Brand.BrandName</p>
+                                                </div>
+                                            </div>
+                                            <div class="row text-center align-items-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Bộ xử lí</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductChip</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light text-center align-items-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">RAM</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductRam</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light text-center align-items-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Bộ nhớ trong</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductStorage</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="nav-mission" role="tabpanel"
+                                 aria-labelledby="nav-mission-tab">
+                                <div class="px-2">
+                                    <div class="row g-4">
+                                        <div class="col-6">
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Tên</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductName</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Số lượng còn lại</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductQuantity</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Màn hình</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductScreen</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Hệ điều hành</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductPlatform</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Camera</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductCamera</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Bộ xử lí</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductChip</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">RAM</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductRam</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Bộ nhớ trong</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductStorage</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Dung lượng pin</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductBattery</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Màu sắc</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.ProductColor</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Hãng</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.Brand.BrandName</p>
+                                                </div>
+                                            </div>
+                                            <div class="row bg-light align-items-center text-center justify-content-center py-2">
+                                                <div class="col-6">
+                                                    <p class="mb-0">Loại</p>
+                                                </div>
+                                                <div class="col-6">
+                                                    <p class="mb-0">@Model.Category.CategoryName</p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="nav-vision" role="tabpanel">
+                                <p class="text-dark">
+                                    Tempor erat elitr rebum at clita. Diam dolor diam ipsum et
+                                    tempor sit. Aliqu diam
+                                    amet diam et eos labore. 3
+                                </p>
+                                <p class="mb-0">
+                                    Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos
+                                    labore.
+                                    Clita erat ipsum et lorem et sit
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-xl-3">
+                <div class="row g-4 fruite">
+
+                    <div class="col-lg-12">
+                        <h4 class="mb-4">Sản Phẩm Nổi Bật</h4>
+                        @foreach (var item in ViewBag.ViewMore)
+                        {
+                            <!-- start sản phẩm nổi bật -->
+
+                            <div class="d-flex align-items-center justify-content-start">
+                                <a class="rounded" asp-action="ProductDetail" asp-route-id="@item.ProductId" style="width: 100px; height: 100px;">
+                                    <img src="~/images/@item.ProductImage" class="img-fluid rounded" alt="Image">
+                                </a>
+                                <div>
+                                    <h6 class="mb-2">@item.ProductName</h6>
+                                    <div class="d-flex mb-2">
+                                        <i class="fa fa-star text-warning"></i>
+                                        <i class="fa fa-star  text-warning"></i>
+                                        <i class="fa fa-star  text-warning"></i>
+                                        <i class="fa fa-star  text-warning"></i>
+                                        <i class="fa fa-star text-secondary"></i>
+                                    </div>
+                                    <div class="d-flex mb-2">
+                                        <h5 class="fw-bold me-2">
+                                            @(((float)(item.ProductPrice + (item.ProductPrice / 10))).ToString("0.00"))
+                                            $
+                                        </h5>
+                                        <h5 class="text-danger text-decoration-line-through">@item.ProductPrice $</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="d-flex justify-content-center my-4">
+                            <a asp-action="AllProduct"
+                               class="btn border border-secondary px-4 py-3 rounded-pill text-primary w-100">
+                                Xem thêm
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <a class="position-relative" asp-action="ProductDetail" asp-route-id="@Model.ProductId">
+                            <img src="~/images/@Model.ProductImage" class="img-fluid w-100 rounded" alt="">
+                            <div class="position-absolute"
+                                 style="top: 50%; right: 10px; transform: translateY(-50%);">
+                                <h3 class="text-danger fw-bold">Bán  <br>Chạy  </h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Single Product End -->

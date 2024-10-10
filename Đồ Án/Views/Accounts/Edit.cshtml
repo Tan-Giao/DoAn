@@ -1,0 +1,107 @@
+﻿@model Assignment.Data.Entities.Account
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+
+<h1>Edit</h1>
+
+<h4>Account</h4>
+<hr />
+
+<div class="card h-auto">
+    <div class="card-body">
+        <h3 class="mb-3">Add New Account</h3>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="Id">ID *</label>
+                    <input asp-for="Id" type="text" placeholder="" class="form-control" readonly />
+                    <span asp-validation-for="Id" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="UserName">User Name *</label>
+                    <input asp-for="UserName" type="text" placeholder="" class="form-control " />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label>Password *</label>
+                    <div class="d-flex">
+                        <input value="&#8226&#8226&#8226&#8226&#8226&#8226&#8226&#8226" type="password" placeholder="" class="form-control " /><span class="badge"><button class="btn btn-primary">Change</button></span>
+                    </div>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="FullName">Full Name *</label>
+                    <input asp-for="FullName" type="text" placeholder="" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="Gender">Gender *</label>
+                    <select asp-for="Gender" class="form-select" tabindex="-1" aria-hidden="true">
+                        <option value="">Please Select Your Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="Address">Address *</label>
+                    <input asp-for="Address" placeholder="" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="PhoneNumber">Phone Number *</label>
+                    <input asp-for="PhoneNumber" placeholder="" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="Email">Email *</label>
+                    <input asp-for="Email" type="text" placeholder="" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="col-xl-6 col-lg-12 col-12 form-group mb-4">
+                    <label asp-for="Avatar" class="text-dark-medium">Upload Your Avarta</label>
+                    <input asp-for="Avatar" type="file" class="form-control" />
+                    <span asp-validation-for="Avatar" class="text-danger"></span>
+                </div>
+
+
+
+                <div class="col-12 form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="btn btn-secondary mt-5">
+    <img src="~/images/icon/arrow-left-circle-fill.svg">
+    <a asp-action="Index" class="text-decoration-none fw-bold text-white">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

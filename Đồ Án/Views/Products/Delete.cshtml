@@ -1,0 +1,100 @@
+﻿@model Assignment.Data.Entities.Product
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h1>Delete Product</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+
+<hr />
+
+
+<div class="card h-auto">
+    <div class="card-body">
+        <h3 class="mb-3">Delete Product</h3>
+        <div class="row">
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductId">ID </label>
+                <input asp-for="ProductId" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductName">Name </label>
+                <input asp-for="ProductName" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductQuantity">Quantity </label>
+                <input asp-for="ProductQuantity" type="number" min="0" placeholder="0" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductPrice">Price </label>
+                <input asp-for="ProductPrice" min="0" placeholder="" class="form-control" disabled readonly />
+
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductScreen">Srceen </label>
+                <input asp-for="ProductScreen" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductPlatform">Platform </label>
+                <input asp-for="ProductPlatform" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductCamera">Camera </label>
+                <input asp-for="ProductCamera" type=" text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductChip">Chip</label>
+                <input asp-for="ProductChip" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductRam">RAM </label>
+                <input asp-for="ProductRam" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductStorage">Storage </label>
+                <input asp-for="ProductStorage" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductBattery">Battery  </label>
+                <input asp-for="ProductBattery" type="text" placeholder="" class="form-control" disabled readonly />
+
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductColor">Color</label>
+                <input asp-for="ProductColor" type="text" placeholder="" class="form-control" disabled readonly />
+
+            </div>
+ 
+            <div class="col-lg-3 col-6 form-group">
+                   <label asp-for="Brand.BrandName" class="text-dark-medium">Brand</label >
+                <input asp-for="Brand.BrandName" class="form-control" disabled readonly /> 
+            </div>  
+            <div class="col-lg-3 col-6 form-group">
+                   <label asp-for="Category.CategoryName" class="text-dark-medium">Category</label >
+                <input asp-for="Category.CategoryName" class="form-control" disabled readonly />
+            </div>
+            <div class="col-lg-6 col-12 form-group">
+                <label asp-for="ProductImage" class="text-dark-medium">Upload Image of Product</label>
+                <input asp-for="ProductImage" type="file" class="form-control" disabled readonly />
+            </div>
+            <div class="col-lg-6 col-12 form-group mb-4">
+                <label asp-for="ProductDescription">Description</label>
+                <textarea asp-for="ProductDescription" class="textarea form-control" name="message" id="form-message" cols="10" rows="7" disabled readonly></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="ProductId" />
+    <input type="submit" value="Delete" class="btn btn-danger" />
+    <br>
+    <div class="btn btn-secondary mt-5">
+        <img src="~/images/icon/arrow-left-circle-fill.svg">
+        <a asp-action="Index" class="text-decoration-none fw-bold text-white">Back to List</a>
+    </div>
+</form>

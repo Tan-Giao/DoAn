@@ -1,0 +1,68 @@
+﻿@model Assignment.Data.Entities.Account
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h1>Delete Account</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+
+<hr />
+
+
+<div class="card h-auto">
+    <div class="card-body">
+        <h3 class="mb-3">Delete Account</h3>
+        <div class="row">
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="Id">ID </label>
+                <input asp-for="Id" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="UserName">User Name </label>
+                <input asp-for="UserName" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="FullName">Full Name </label>
+                <input asp-for="FullName" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="Gender">Gender</label>
+                <input asp-for="Gender" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="Address">Address </label>
+                <input asp-for="Address" placeholder="" class="form-control" disabled readonly />
+            </div>
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="PhoneNumber">Phone Number</label>
+                <input asp-for="PhoneNumber" placeholder="" class="form-control" disabled readonly />
+            </div>
+
+
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="Email">Email </label>
+                <input asp-for="Email" type="text" placeholder="" class="form-control" disabled readonly />
+            </div>
+
+            <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                <label asp-for="Avatar" class="text-dark-medium">Upload Your Avarta</label>
+                <input asp-for="Avatar" type="file" class="form-control" disabled readonly />
+            </div>
+    </div>
+</div>
+</div>
+
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <br>
+        <div class="btn btn-secondary mt-5">
+            <img src="~/images/icon/arrow-left-circle-fill.svg">
+            <a asp-action="Index" class="text-decoration-none fw-bold text-white">Back to List</a>
+        </div>
+    </form>
+

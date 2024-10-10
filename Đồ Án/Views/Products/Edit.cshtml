@@ -1,0 +1,230 @@
+﻿@model Assignment.Data.Entities.Product
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+
+<h1>Edit</h1>
+
+<h4>Product</h4>
+<hr />
+
+
+<div class="card h-auto">
+    <div class="card-body">
+        <h3 class="mb-3">Edit Product</h3>
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductId">ID *</label>
+                    <input asp-for="ProductId" type="text" placeholder="" class="form-control" readonly />
+                    <span asp-validation-for="ProductId" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductName">Name *</label>
+                    <input asp-for="ProductName" type="text" placeholder="" class="form-control " />
+                    <span asp-validation-for="ProductName" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductQuantity">Quantity *</label>
+                    <input asp-for="ProductQuantity" type="number" min="0" placeholder="0" class="form-control" />
+                    <span asp-validation-for="ProductQuantity" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductPrice">Price *</label>
+                    <div class="d-flex">
+                        <input asp-for="ProductPrice" min="0" placeholder="" class="form-control" /> <span class="badge bg-secondary p-3">$</span>
+                    </div>
+                    <span asp-validation-for="ProductPrice" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductScreen">Srceen *</label>
+                    <input asp-for="ProductScreen" type="text" placeholder="" class="form-control" />
+                    <span asp-validation-for="ProductScreen" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductPlatform">Platform *</label>
+                    <select asp-for="ProductPlatform" id="ProductPlatform" class="form-select" tabindex="-1" aria-hidden="true">
+                        <option value="@ViewData["Platform"]">
+                            @ViewData["Platform"]
+                        </option>
+                    </select>
+                    <span asp-validation-for="ProductPlatform" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductCamera">Camera *</label>
+                    <input asp-for="ProductCamera" type=" text" placeholder="" class="form-control" />
+                    <span asp-validation-for="ProductCamera" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductChip">Chip</label>
+                    <input asp-for="ProductChip" type="text" placeholder="" class="form-control" />
+                    <span asp-validation-for="ProductChip" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductRam">RAM *</label>
+                    <select asp-for="ProductRam" class="form-select" tabindex="-1" aria-hidden="true">
+                        <option value="Unknown">
+                            Please Select RAM *
+                        </option>
+                        <option value="1GB">1GB</option>
+                        <option value="2GB">2GB</option>
+                        <option value="3GB">3GB</option>
+                        <option value="4GB">4GB</option>
+                        <option value="6GB">6GB</option>
+                        <option value="8GB">8GB</option>
+                        <option value="12GB">12GB</option>
+                        <option value="16GB">16GB</option>
+                        <option value="32GB">32GB</option>
+                        <option value="64GB">64GB</option>
+                    </select>
+                    <span asp-validation-for="ProductRam" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductStorage">Storage *</label>
+                    <select asp-for="ProductStorage" class="form-select" tabindex="-1" aria-hidden="true">
+                        <option value="Unknown">
+                            Please Select Storage *
+                        </option>
+                        <option value="32GB">32GB</option>
+                        <option value="64GB">64GB</option>
+                        <option value="128GB">128GB</option>
+                        <option value="256GB">256GB</option>
+                        <option value="512GB">512GB</option>
+                        <option value="1TB">1TB</option>
+                    </select>
+                    <span asp-validation-for="ProductStorage" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductBattery">Battery * </label>
+
+                    <input asp-for="ProductBattery" class="form-control" />
+
+                    <span asp-validation-for="ProductBattery" class="text-danger"></span>
+                </div>
+                <div class="col-xl-3 col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductColor">Color</label>
+                    <select asp-for="ProductColor" class="form-select" tabindex="-1" aria-hidden="true">
+                        <option value="Unknown">
+                            Please Select Color *
+                        </option>
+                        <option value="Stormy Black">Stormy Black</option>
+                        <option value="Morning Mist">Morning Mist</option>
+                        <option value="Ceramic White">Ceramic White</option>
+                        <option value="Frosted Black">Frosted Black</option>
+                        <option value="Phantom Green">Phantom Green</option>
+                        <option value="Midnight">Midnight</option>
+                        <option value="Sorta Sage">Sorta Sage</option>
+                        <option value="Blue Haze">Blue Haze</option>
+                        <option value="Glacier Blue">Glacier Blue</option>
+                        <option value="Lunar White">Lunar White</option>
+                        <option value="Flash Gray">Flash Gray</option>
+                        <option value="Stormy Black">Stormy Black</option>
+                        <option value="Truffle Black">Truffle Black</option>
+                        <option value="Charcoal Ink">Charcoal Ink</option>
+                        <option value="Infinite Black">Infinite Black</option>
+                        <option value="Steel Gray">Steel Gray</option>
+                        <option value="Awesome Violet">Awesome Violet</option>
+                        <option value="Product Red">Product Red</option>
+                        <option value="Silver">Silver</option>
+                        <option value="Space Gray">Space Gray</option>
+                        <option value="Black">Black</option>
+                        <option value="Dark Ash Silver">Dark Ash Silver</option>
+                        <option value="Moonlight White">Moonlight White</option>
+                        <option value="Mist Green">Mist Green</option>
+                        <option value="Platinum">Platinum</option>
+
+
+
+
+
+
+                    </select>
+                    <span asp-validation-for="ProductColor" class="text-danger"></span>
+                </div>
+               
+                <div class="col-lg-3 col-6 form-group mb-4 h-auto">
+                    <label asp-for="BrandId" class="text-dark-medium">Brand</label>
+                    <select asp-for="BrandId" class="form-select" tabindex="-1" aria-hidden="true">
+                      <option value="Unknown">
+                            Please Select Brand *
+                        </option>
+                       @foreach (var item in ViewBag.Brands)
+                        {
+                            <option value="@item.BrandId">@item.BrandName</option>
+                        }
+                    </select>
+                     <span asp-validation-for="BrandId" class="text-danger"></span> 
+                </div>
+                <div class="col-lg-3 col-6 form-group h-auto">
+                    <label asp-for="CategoryId" class="text-dark-medium">Category</label>
+                    <select asp-for="CategoryId" id="CategoryId" class="form-select" tabindex="-1" aria-hidden="true">
+                        <option value="Unknown">
+                            Please Select Category *
+                        </option>
+                        @foreach (var item in ViewBag.Categories)
+                        {
+                            <option value="@item.CategoryId">@item.CategoryName</option>
+                        }
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+               
+                <div class="col-lg-6 col-12 form-group mb-4">
+                    <label asp-for="ProductImage" class="text-dark-medium">Upload Image of Product</label>
+                    <input asp-for="ProductImage" type="file" class="form-control" />
+                    <span asp-validation-for="ProductImage" class="text-danger"></span>
+                </div>
+                <div class="col-lg-6 col-12 form-group mb-4 ">
+                    <label asp-for="ProductDescription">Description</label>
+                    <textarea asp-for="ProductDescription" class="textarea form-control" name="message" id="form-message" cols="10" rows="7"></textarea>
+                    <span asp-validation-for="ProductDescription" class="text-danger"></span>
+                </div>
+                <div class="col-12 form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="btn btn-secondary mt-5">
+    <img src="~/images/icon/arrow-left-circle-fill.svg">
+    <a asp-action="Index" class="text-decoration-none fw-bold text-white">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<script>
+
+    document.getElementById("CategoryId").addEventListener("change", function () {
+        var categoryId = this.value;
+        var platformDropdown = document.getElementById("ProductPlatform");
+        var laptopOS = "<option value='Window'>Window</option><option value='MacOS'>MacOS</option>";
+        var mobileOS = "<option value='Android'>Android</option><option value='iOS'>iOS</option>";
+        if (categoryId == 24) {
+            platformDropdown.innerHTML = "";
+            platformDropdown.innerHTML += laptopOS;
+        }
+        else{
+            platformDropdown.innerHTML = "";
+            platformDropdown.innerHTML += mobileOS;
+        }
+    });
+</script>
